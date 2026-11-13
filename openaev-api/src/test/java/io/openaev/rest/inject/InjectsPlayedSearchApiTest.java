@@ -106,6 +106,7 @@ class InjectsPlayedSearchApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Injects directly targeting the asset are returned")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_inject_directly_targeting_asset_should_return_inject() throws Exception {
       EndpointComposer.Composer endpoint =
           endpointComposer.forEndpoint(EndpointFixture.createEndpoint()).persist();
@@ -143,6 +144,7 @@ class InjectsPlayedSearchApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Simulation injects evidenced only by a technical expectation are returned")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_simulation_inject_with_expectation_evidence_should_return_inject() throws Exception {
       // The inject does NOT target the asset directly: only the expectation persisted at
       // execution time references it (dynamic asset-group membership case).
@@ -196,6 +198,7 @@ class InjectsPlayedSearchApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Direct targeting and expectation evidence are both returned")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_direct_and_evidenced_injects_should_return_both() throws Exception {
       AssetGroupComposer.Composer assetGroup =
           assetGroupComposer
@@ -233,6 +236,7 @@ class InjectsPlayedSearchApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Direct targeting and table-top expectation evidence are both returned")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_direct_and_evidenced_injects_should_return_both() throws Exception {
       TeamComposer.Composer team = teamComposer.forTeam(TeamFixture.getDefaultTeam()).persist();
       InjectComposer.Composer directInject =
@@ -261,7 +265,9 @@ class InjectsPlayedSearchApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Without grants, injects in scope are not returned")
-    @WithMockUser(withCapabilities = {Capability.ACCESS_ASSETS})
+    @WithMockUser(
+        withCapabilities = {Capability.ACCESS_ASSETS},
+        autoJoinDefaultTenant = true)
     void given_no_grants_should_return_empty_page() throws Exception {
       EndpointComposer.Composer endpoint =
           endpointComposer.forEndpoint(EndpointFixture.createEndpoint()).persist();
@@ -281,7 +287,9 @@ class InjectsPlayedSearchApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("An OBSERVER grant on the simulation restricts results to its injects")
-    @WithMockUser(withCapabilities = {Capability.ACCESS_ASSETS})
+    @WithMockUser(
+        withCapabilities = {Capability.ACCESS_ASSETS},
+        autoJoinDefaultTenant = true)
     void given_observer_grant_on_simulation_should_return_only_simulation_injects()
         throws Exception {
       EndpointComposer.Composer endpoint =
@@ -309,7 +317,7 @@ class InjectsPlayedSearchApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("An admin sees every inject in scope")
-    @WithMockUser(isAdmin = true)
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_admin_should_return_all_injects_in_scope() throws Exception {
       EndpointComposer.Composer endpoint =
           endpointComposer.forEndpoint(EndpointFixture.createEndpoint()).persist();
