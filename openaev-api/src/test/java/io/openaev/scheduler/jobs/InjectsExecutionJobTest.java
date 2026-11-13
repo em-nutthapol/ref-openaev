@@ -26,6 +26,7 @@ import io.openaev.integration.Manager;
 import io.openaev.integration.ManagerFactory;
 import io.openaev.rest.exercise.service.ExerciseService;
 import io.openaev.rest.inject.service.InjectStatusService;
+import io.openaev.scheduler.TenantScopedJobRunner;
 import io.openaev.utils.fixtures.*;
 import io.openaev.utils.fixtures.composers.*;
 import io.openaev.utilstest.RowTenantScope;
@@ -84,6 +85,7 @@ class InjectsExecutionJobTest extends IntegrationTest {
   @Autowired private InjectStatusRepository injectStatusRepository;
   @Autowired private AgentRepository agentRepository;
   @Autowired private RowTenantScope rowTenantScope;
+  @Autowired private TenantScopedJobRunner tenantScopedJobRunner;
   @MockitoSpyBean private ManagerFactory managerFactory;
   @MockitoSpyBean private InjectStatusService injectStatusService;
 
@@ -556,8 +558,17 @@ class InjectsExecutionJobTest extends IntegrationTest {
         doReturn(List.of()).when(healthCheckUtils).runContentChecks(any(Inject.class));
         doNothing().when(injectStatusService).deleteInjectAuthorisationIfExecutionEnded(any());
 
-        // Act
-        job.executeInject(getExecutableInject(ids[1]));
+        // Act: in the inject's tenant, as execute() runs each inject
+        ExecutableInject executableInject = getExecutableInject(ids[1]);
+        tenantScopedJobRunner.runInTenant(
+            Tenant.DEFAULT_TENANT_UUID,
+            () -> {
+              try {
+                job.executeInject(executableInject);
+              } catch (Exception e) {
+                throw new IllegalStateException(e);
+              }
+            });
 
         // Assert
         AuditEvent targetResolutionEvent = captureTargetResolutionEvent(ids[1]);
