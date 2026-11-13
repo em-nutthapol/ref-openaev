@@ -584,4 +584,10 @@ class ImportMapperActivationConfigTest {
   void prodConfigActivatesInjectorsInjectorContracts() throws Exception {
     assertActiveTableEntry("injectors_injector_contracts");
   }
+
+  @Test
+  @DisplayName("openaev.tenant.active-tables in application.properties contains roles")
+  void prodConfigActivatesRoles() throws Exception {
+    assertActiveTableEntry("roles");
+  }
 }

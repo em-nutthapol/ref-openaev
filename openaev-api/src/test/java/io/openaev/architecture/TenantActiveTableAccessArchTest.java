@@ -453,7 +453,8 @@ class TenantActiveTableAccessArchTest {
           "injectors_injector_contracts",
           "catalog_history",
           "scenario_identities",
-          "payload_revocations");
+          "payload_revocations",
+          "roles");
 
   @ArchTest
   static void every_active_table_is_guarded(JavaClasses classes) throws Exception {
