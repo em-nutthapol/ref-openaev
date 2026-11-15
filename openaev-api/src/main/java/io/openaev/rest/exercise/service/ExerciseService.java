@@ -697,7 +697,8 @@ public class ExerciseService {
         .getObject()
         .listInEachTenant(
             ctx,
-            () -> canAccessEverySimulation(currentUser),
+            currentUser,
+            ExerciseService::canAccessEverySimulation,
             all,
             granted,
             RawExerciseSimple::getTenant_id,
@@ -718,7 +719,8 @@ public class ExerciseService {
         .getObject()
         .filterInEachTenant(
             ctx,
-            () -> canAccessEverySimulation(currentUser),
+            currentUser,
+            ExerciseService::canAccessEverySimulation,
             accessRight ->
                 SpecificationUtils.hasGrantAccess(
                     currentUser.getId(), false, accessRight, Grant.GRANT_TYPE.OBSERVER));
@@ -873,9 +875,11 @@ public class ExerciseService {
                           .getObject()
                           .filterInEachTenant(
                               ctx,
-                              () ->
-                                  user.isAdminOrBypass()
-                                      || user.getCapabilities()
+                              user,
+                              caller ->
+                                  caller.isAdminOrBypass()
+                                      || caller
+                                          .getCapabilities()
                                           .contains(Capability.DELETE_ASSESSMENT),
                               deleteRight ->
                                   SpecificationUtils.hasGrantAccess(
