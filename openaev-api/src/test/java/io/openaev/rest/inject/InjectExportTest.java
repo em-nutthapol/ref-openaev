@@ -611,6 +611,7 @@ public class InjectExportTest extends IntegrationTest {
       }
 
       @Test
+      @WithMockUser(autoJoinDefaultTenant = true)
       @DisplayName("With OBSERVER grant on exercise, return injects")
       public void withOBSERVERGrantOnExerciseReturnInjects() throws Exception {
         List<InjectComposer.Composer> injectWrappers = createDefaultInjectWrappers();

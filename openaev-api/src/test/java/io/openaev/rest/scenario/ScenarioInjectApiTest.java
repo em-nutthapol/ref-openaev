@@ -590,6 +590,7 @@ class ScenarioInjectApiTest extends IntegrationTest {
     @DisplayName(
         "Given an injector contract matching all platforms, should create one inject with all assets and asset groups")
     @Test
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void
         given_InjectorContractMatchingAllPlatforms_should_createOneInjectWithAllAssetsAndAssetGroup()
             throws Exception {
@@ -641,6 +642,7 @@ class ScenarioInjectApiTest extends IntegrationTest {
     @DisplayName(
         "Given injectorContract matching all Windows, should create one inject with all windows assets and with all windows group")
     @Test
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_InjectorContractMatchingAllWindows_should_createOneInject() throws Exception {
       buildInjectorContract(
           ATTACKPATTERN,
@@ -684,6 +686,7 @@ class ScenarioInjectApiTest extends IntegrationTest {
     @DisplayName(
         "Given injectorContracts each matching Windows x86_64 and Windows arm64, should create two injects")
     @Test
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_TwoInjectorContractWindows_should_createTwoInjects() throws Exception {
       buildInjectorContract(
           ATTACKPATTERN,
@@ -720,6 +723,7 @@ class ScenarioInjectApiTest extends IntegrationTest {
 
     @DisplayName("Given injectorContracts that do not match Windows, should create manualInject")
     @Test
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_NoInjectorContractMatching_should_createManualInject() throws Exception {
       buildInjectorContract(
           ATTACKPATTERN,
@@ -768,6 +772,7 @@ class ScenarioInjectApiTest extends IntegrationTest {
     // Test inject number per TTP
     @DisplayName("Given injectByTTPNumber to 2, should create 2 injects")
     @Test
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_TwoInjectByTTPNumber_should_createTwoInjects() throws Exception {
       buildInjectorContract(
           ATTACKPATTERN,
