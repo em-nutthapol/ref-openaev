@@ -70,6 +70,7 @@ import io.openaev.rest.settings.PreviewFeature;
 import io.openaev.rest.tag.TagService;
 import io.openaev.secrets.service.SecretReferenceService;
 import io.openaev.service.*;
+import io.openaev.service.finding.FindingOccurrenceService;
 import io.openaev.service.threat_arsenal.ThreatArsenalService;
 import io.openaev.service.utils.BulkOperationMonitor;
 import io.openaev.telemetry.metric_collectors.CredentialMetricCollector;
@@ -159,6 +160,7 @@ public class InjectService {
   private final ApplicationEventPublisher eventPublisher;
   private final BulkOperationMonitor bulkOperationMonitor;
   private final InjectStatusService injectStatusService;
+  private final FindingOccurrenceService findingOccurrenceService;
   private final CredentialMetricCollector credentialMetricCollector;
 
   private final LicenseCacheManager licenseCacheManager;
@@ -1318,6 +1320,7 @@ public class InjectService {
   public void resetInjectByExercise(String simulationId) {
     List<Inject> injects = injectRepository.findAllInjectBySimulationId(simulationId);
     if (injects.isEmpty()) return;
+    findingOccurrenceService.detachFromSimulation(simulationId);
     injects.forEach(Inject::clean);
     injectRepository.saveAll(injects);
   }

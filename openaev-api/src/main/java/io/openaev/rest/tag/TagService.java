@@ -126,7 +126,8 @@ public class TagService {
   }
 
   /** The tags among {@code tagIds} that belong to the tenant: another tenant's id is skipped. */
-  public List<Tag> tagsInTenant(@NotNull final List<String> tagIds, @NotBlank final String tenantId) {
+  public List<Tag> tagsInTenant(
+      @NotNull final List<String> tagIds, @NotBlank final String tenantId) {
     return this.tagRepository.findAllByIdInTenant(tagIds, tenantId);
   }
 
