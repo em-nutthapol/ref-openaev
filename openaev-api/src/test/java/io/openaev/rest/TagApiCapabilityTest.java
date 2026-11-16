@@ -51,7 +51,9 @@ public class TagApiCapabilityTest extends IntegrationTest {
   class ReadSearchPermissions {
 
     @Test
-    @WithMockUser(withCapabilities = {Capability.ACCESS_TAGS})
+    @WithMockUser(
+        withCapabilities = {Capability.ACCESS_TAGS},
+        autoJoinDefaultTenant = true)
     @DisplayName("Given ACCESS_TAGS, should list and search tags")
     void given_accessTags_should_listAndSearchTags() throws Exception {
       // -------- Arrange --------
@@ -88,7 +90,9 @@ public class TagApiCapabilityTest extends IntegrationTest {
     }
 
     @Test
-    @WithMockUser(withCapabilities = {Capability.MANAGE_TAGS})
+    @WithMockUser(
+        withCapabilities = {Capability.MANAGE_TAGS},
+        autoJoinDefaultTenant = true)
     @DisplayName("Given MANAGE_TAGS, should read tags through manager capability inheritance")
     void given_manageTags_should_readTagsThroughManagerCapabilityInheritance() throws Exception {
       // -------- Arrange --------
@@ -195,7 +199,9 @@ public class TagApiCapabilityTest extends IntegrationTest {
   class UpdatePermissions {
 
     @Test
-    @WithMockUser(withCapabilities = {Capability.MANAGE_TAGS})
+    @WithMockUser(
+        withCapabilities = {Capability.MANAGE_TAGS},
+        autoJoinDefaultTenant = true)
     @DisplayName("Given MANAGE_TAGS, should update a tag")
     void given_manageTags_should_updateTag() throws Exception {
       // -------- Arrange --------
@@ -247,7 +253,9 @@ public class TagApiCapabilityTest extends IntegrationTest {
   class DeletePermissions {
 
     @Test
-    @WithMockUser(withCapabilities = {Capability.DELETE_TAGS})
+    @WithMockUser(
+        withCapabilities = {Capability.DELETE_TAGS},
+        autoJoinDefaultTenant = true)
     @DisplayName("Given DELETE_TAGS, should delete a tag")
     void given_deleteTags_should_deleteTag() throws Exception {
       // -------- Arrange --------

@@ -288,7 +288,9 @@ public class ScenarioApiTest extends IntegrationTest {
 
   @DisplayName("Requesting non existing scenario by ID fails gracefully")
   @Test
-  @WithMockUser(withCapabilities = {Capability.ACCESS_ASSESSMENT})
+  @WithMockUser(
+      withCapabilities = {Capability.ACCESS_ASSESSMENT},
+      autoJoinDefaultTenant = true)
   void failsafeNonExistScenarioId() throws Exception {
     // -- EXECUTE --
     this.mvc
@@ -625,6 +627,7 @@ public class ScenarioApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Throw license restricted error when add Crowdstrike on scheduled scenario")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void given_crowdstrikeInsdeDynamicGroup_should_not_beAddedToScheduledExercise()
         throws Exception {
       Scenario scenario = getScenario(ScenarioFixture.getScheduledScenario(), null);

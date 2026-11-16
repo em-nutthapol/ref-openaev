@@ -162,7 +162,9 @@ class DocumentApiTest extends IntegrationTest {
      */
     @Test
     @DisplayName("Given a human user with ACCESS_DOCUMENTS should download the file")
-    @WithMockUser(withCapabilities = {Capability.ACCESS_DOCUMENTS})
+    @WithMockUser(
+        withCapabilities = {Capability.ACCESS_DOCUMENTS},
+        autoJoinDefaultTenant = true)
     void given_human_user_with_access_documents_capability_should_download() throws Exception {
       Document document = getSimpleDocumentWithInMemoryFile();
 
@@ -321,7 +323,8 @@ class DocumentApiTest extends IntegrationTest {
           Capability.ACCESS_CHALLENGES,
           Capability.ACCESS_LESSONS_LEARNED,
           Capability.ACCESS_SECURITY_PLATFORMS
-        })
+        },
+        autoJoinDefaultTenant = true)
     void given_observer_default_role_should_still_list_and_search_documents() throws Exception {
       Document document = getSimpleDocumentWithInMemoryFile();
 
@@ -357,6 +360,7 @@ class DocumentApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Given a document related to a payload should no delete the payload")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void givenADocumentRelatedToAPayload_ShouldNoDeleteDocument() throws Exception {
       Document document = getDocumentWithPayload();
 
@@ -368,6 +372,7 @@ class DocumentApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Given a document used as a security platform logo should not delete the document")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void givenADocumentUsedAsSecurityPlatformLogo_ShouldNotDeleteDocument() throws Exception {
       Document document = getDocumentUsedAsSecurityPlatformLogo();
       // Reload from DB so the document's reverse logo collections are populated
@@ -382,6 +387,7 @@ class DocumentApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Given a document without related entities should be deleted")
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void givenADocumentWithRelationsShouldBeDeleted() throws Exception {
       Document document = getDocumentWithChallenge();
       Challenge challenge = document.getChallenges().stream().findFirst().get();

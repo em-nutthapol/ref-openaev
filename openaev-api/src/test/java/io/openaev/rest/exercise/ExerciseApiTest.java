@@ -204,7 +204,7 @@ public class ExerciseApiTest extends IntegrationTest {
   class RetrievingExercises {
     @Test
     @DisplayName("Retrieving players by exercise")
-    @WithMockUser(isAdmin = true)
+    @WithMockUser(isAdmin = true, autoJoinDefaultTenant = true)
     void retrievingPlayersByExercise() throws Exception {
       // -- PREPARE --
       User userTom = userRepository.save(UserFixture.getUser("Tom", "TEST", "tom-test@fake.email"));
@@ -464,6 +464,9 @@ public class ExerciseApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Throw license restricted error when add Tanium on scheduled scenario")
+    @WithMockUser(
+        withCapabilities = {Capability.MANAGE_ASSESSMENT},
+        autoJoinDefaultTenant = true)
     void given_taniumAsset_should_not_beAddedToScheduledExercise() throws Exception {
       Exercise exercise = getExercise(null);
 
@@ -723,6 +726,9 @@ public class ExerciseApiTest extends IntegrationTest {
 
     @Test
     @DisplayName("Should return 404 when exercise does not exist")
+    @WithMockUser(
+        withCapabilities = {Capability.DELETE_ASSESSMENT, Capability.MANAGE_ASSESSMENT},
+        autoJoinDefaultTenant = true)
     void given_nonExistentExercise_should_returnNotFound() throws Exception {
       // Arrange
       String nonExistentId = UUID.randomUUID().toString();
