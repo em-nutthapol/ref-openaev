@@ -116,6 +116,19 @@ public class CredentialService {
                     null,
                     null))),
         new CredentialContractOutput(
+            CredentialSecretReference.CREDENTIAL_TYPE.API,
+            CredentialSecretReference.CREDENTIAL_AUTH_METHOD.API_TOKEN,
+            List.of(
+                new CredentialContractOutput.CredentialContractField(
+                    "credential_api_token",
+                    CredentialContractOutput.CredentialContractFieldType.password,
+                    true,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null))),
+        new CredentialContractOutput(
             CredentialSecretReference.CREDENTIAL_TYPE.CLOUD_AWS,
             CredentialSecretReference.CREDENTIAL_AUTH_METHOD.AWS_ACCESS_KEY,
             List.of(
@@ -636,7 +649,8 @@ public class CredentialService {
         input.gcpCustomIamUri(),
         input.gcpCustomOauthAccessToken(),
         input.azureAuthorityHostUri(),
-        azureRequestsCertificate);
+        azureRequestsCertificate,
+        input.credentialApiToken());
   }
 
   /**

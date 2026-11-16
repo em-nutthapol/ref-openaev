@@ -100,7 +100,8 @@ class CredentialApiTest extends IntegrationTest {
               CredentialSecretReference.CREDENTIAL_AUTH_METHOD.AZURE_SERVICE_PRINCIPAL.name(),
               CredentialSecretReference.CREDENTIAL_AUTH_METHOD.AZURE_MANAGED_IDENTITY.name(),
               CredentialSecretReference.CREDENTIAL_AUTH_METHOD.GCP_SERVICE_ACCOUNT.name(),
-              CredentialSecretReference.CREDENTIAL_AUTH_METHOD.GCP_OAUTH2.name());
+              CredentialSecretReference.CREDENTIAL_AUTH_METHOD.GCP_OAUTH2.name(),
+              CredentialSecretReference.CREDENTIAL_AUTH_METHOD.API_TOKEN.name());
     }
 
     @Test
@@ -1978,6 +1979,7 @@ class CredentialApiTest extends IntegrationTest {
         null,
         null,
         null,
+        null,
         List.of());
   }
 
@@ -2012,6 +2014,7 @@ class CredentialApiTest extends IntegrationTest {
         null,
         null,
         // GCP
+        null,
         null,
         null,
         null,
