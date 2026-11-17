@@ -227,7 +227,8 @@
     "Tenants",
     "total",
     "Variables",
-    "Vulnerable"
+    "Vulnerable",
+    "Local"
   ],
   "fr": [
     "{count} / page",
@@ -362,7 +363,8 @@
     "Variables",
     "Version",
     "Vision",
-    "~{count} injects"
+    "~{count} injects",
+    "Local"
   ],
   "it": [
     "Asset",

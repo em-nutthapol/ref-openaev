@@ -250,7 +250,8 @@ public class InjectorContractService implements DependenciesManager {
       @Nullable final Specification<InjectorContract> specification,
       @Nullable final Specification<InjectorContract> specificationCount,
       @NotNull final Pageable pageable,
-      @NotNull TriVoid<CriteriaBuilder, CriteriaQuery<Tuple>, Root<InjectorContract>> selector) {
+      @NotNull TriVoid<CriteriaBuilder, CriteriaQuery<Tuple>, Root<InjectorContract>> selector,
+      boolean byPrimaryDomain) {
     CriteriaBuilder cb = this.entityManager.getCriteriaBuilder();
 
     CriteriaQuery<Tuple> cq = cb.createTupleQuery();
@@ -279,7 +280,11 @@ public class InjectorContractService implements DependenciesManager {
     }
 
     // -- Sorting --
-    List<Order> orders = toSortCriteriaBuilder(cb, injectorContractRoot, pageable.getSort());
+    List<Order> orders = new ArrayList<>();
+    if (byPrimaryDomain) {
+      orders.add(cb.asc(primaryDomainName(cb, cq, injectorContractRoot)));
+    }
+    orders.addAll(toSortCriteriaBuilder(cb, injectorContractRoot, pageable.getSort()));
     cq.orderBy(orders);
 
     // Type Query
@@ -298,6 +303,17 @@ public class InjectorContractService implements DependenciesManager {
     qs.setQuery(query);
     qs.setTotal(total);
     return qs;
+  }
+
+  /** First domain name in alphabetical order, "To classify" left out: the section of the action. */
+  private static Expression<String> primaryDomainName(
+      CriteriaBuilder cb, CriteriaQuery<Tuple> cq, Root<InjectorContract> root) {
+    Subquery<String> subquery = cq.subquery(String.class);
+    Root<InjectorContract> correlated = subquery.correlate(root);
+    Join<InjectorContract, Domain> domain = correlated.join("domains");
+    return subquery
+        .select(cb.least(domain.<String>get("name")))
+        .where(cb.notEqual(domain.get("name"), DomainService.TO_CLASSIFY));
   }
 
   public Iterable<RawInjectorsContracts> getAllRawInjectContracts() {
@@ -768,7 +784,8 @@ public class InjectorContractService implements DependenciesManager {
       Pageable pageable,
       OutputMode mode,
       List<String> idsToIgnore,
-      List<String> idsToProcess) {
+      List<String> idsToProcess,
+      boolean byPrimaryDomain) {
     OutputMode safeMode = (mode == null) ? OutputMode.FULL : mode;
     OutputModeConfig config = CONFIGS.get(safeMode);
     specification = specification.and(withLatestInstalledPayload());
@@ -792,7 +809,8 @@ public class InjectorContractService implements DependenciesManager {
                       .in(idsToProcess));
     }
 
-    QuerySetup qs = setupQuery(specification, specificationCount, pageable, config.selector());
+    QuerySetup qs =
+        setupQuery(specification, specificationCount, pageable, config.selector(), byPrimaryDomain);
 
     List<? extends InjectorContractBaseOutput> results =
         qs.query.getResultList().stream().map(config.mapper()).toList();
