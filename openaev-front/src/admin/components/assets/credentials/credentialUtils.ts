@@ -48,7 +48,6 @@ const convertCredentialFullOutputToCredentialInput = (credential: CredentialFull
     gcp_oauth_client_id: credential.credential_gcp_oauth_client_id,
     gcp_oauth_client_secret: credential.credential_gcp_oauth_client_secret_defined ? DOTS : '',
     gcp_oauth_refresh_token: credential.credential_gcp_oauth_refresh_token_defined ? DOTS : '',
-    // API token: always stored once the credential exists, never sent back.
     credential_api_token: credential.credential_auth_method === 'API_TOKEN' ? DOTS : '',
   };
 };
