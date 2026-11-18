@@ -57,6 +57,7 @@ import io.openaev.service.organization.OrganizationService;
 import io.openaev.utils.TargetType;
 import io.openaev.utils.TriVoid;
 import io.openaev.utils.TxCtxScopeUtils;
+import io.openaev.utils.author.AuthorJoins;
 import io.openaev.utils.pagination.SearchPaginationInput;
 import jakarta.annotation.Nullable;
 import jakarta.annotation.Resource;
@@ -997,22 +998,6 @@ public class InjectorContractService implements DependenciesManager {
    * when both are set and non-blank, the email otherwise. Evaluates to NULL when the (left-joined)
    * user is absent, so outer coalesces fall through to the next author kind.
    */
-  private Expression<String> userAuthorDisplayName(
-      @NotNull final CriteriaBuilder cb, @NotNull final Join<?, User> userJoin) {
-    Expression<String> firstname = userJoin.get("firstname");
-    Expression<String> lastname = userJoin.get("lastname");
-    Predicate hasFullName =
-        cb.and(
-            cb.isNotNull(firstname),
-            cb.notEqual(cb.trim(firstname), ""),
-            cb.isNotNull(lastname),
-            cb.notEqual(cb.trim(lastname), ""));
-    Expression<String> fullName = cb.concat(cb.concat(firstname, " "), lastname);
-    return cb.<String>selectCase()
-        .when(hasFullName, fullName)
-        .otherwise(userJoin.<String>get("email"));
-  }
-
   private void selectForInjectorContractThreatArsenal(
       @NotNull final CriteriaBuilder cb,
       @NotNull final CriteriaQuery<Tuple> cq,
@@ -1041,9 +1026,9 @@ public class InjectorContractService implements DependenciesManager {
             .value(authorOrgJoin.get("id"));
     Expression<String> authorName =
         cb.<String>coalesce()
-            .value(userAuthorDisplayName(cb, cAuthorUserJoin))
+            .value(AuthorJoins.userName(cb, cAuthorUserJoin))
             .value(cAuthorOrgJoin.get("name"))
-            .value(userAuthorDisplayName(cb, authorUserJoin))
+            .value(AuthorJoins.userName(cb, authorUserJoin))
             .value(authorOrgJoin.get("name"));
     Expression<String> authorType =
         cb.<String>selectCase()
@@ -1293,9 +1278,9 @@ public class InjectorContractService implements DependenciesManager {
             .value(pAuthorOrgJoin.get("id"));
     Expression<String> authorName =
         cb.<String>coalesce()
-            .value(userAuthorDisplayName(cb, cAuthorUserJoin))
+            .value(AuthorJoins.userName(cb, cAuthorUserJoin))
             .value(cAuthorOrgJoin.get("name"))
-            .value(userAuthorDisplayName(cb, pAuthorUserJoin))
+            .value(AuthorJoins.userName(cb, pAuthorUserJoin))
             .value(pAuthorOrgJoin.get("name"));
     Expression<String> authorType =
         cb.<String>selectCase()
