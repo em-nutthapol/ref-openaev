@@ -10217,6 +10217,12 @@ export interface PayloadUsageOutput {
   usage_type: "inject" | "atomic_testing" | "step";
 }
 
+export interface PayloadUsagesOutput {
+  payload_usages: PayloadUsageOutput[];
+  /** @format int32 */
+  payload_usages_hidden_count?: number;
+}
+
 export interface PayloadVersionOutput {
   /**
    * The Threat Arsenal action of this version
