@@ -416,6 +416,8 @@ export interface AiTargetTarget {
     | "PARTIAL"
     | "UNKNOWN"
     | "SUCCESS";
+  /** @uniqueItems true */
+  target_markings?: string[];
   target_name?: string;
   target_prevention_status?:
     | "FAILED"
@@ -5078,6 +5080,8 @@ export interface EndpointTarget {
     | "PARTIAL"
     | "UNKNOWN"
     | "SUCCESS";
+  /** @uniqueItems true */
+  target_markings?: string[];
   target_name?: string;
   target_prevention_status?:
     | "FAILED"

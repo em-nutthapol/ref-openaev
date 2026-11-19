@@ -1,6 +1,16 @@
 import { ASSET_BASE_URL, ASSET_GROUP_BASE_URL, PERSON_BASE_URL, TEAM_BASE_URL } from '../../constants/BaseUrls';
 import type { InjectTarget } from '../api-types';
 
+export const getTargetMarkingIds = (target: InjectTarget): string[] => {
+  switch (target.target_type) {
+    case 'ASSETS':
+    case 'AI_TARGETS':
+      return target.target_markings ?? [];
+    default:
+      return [];
+  }
+};
+
 export const isAssetGroups = (target: InjectTarget) => {
   return target.target_type === 'ASSETS_GROUPS';
 };

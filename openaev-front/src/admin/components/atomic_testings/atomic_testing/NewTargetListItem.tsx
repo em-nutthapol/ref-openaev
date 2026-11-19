@@ -5,8 +5,10 @@ import { alpha, useTheme } from '@mui/material/styles';
 import { Link } from 'react-router';
 
 import { useFormatter } from '../../../../components/i18n';
+import ItemMarkings from '../../../../components/ItemMarkings';
 import type { InjectTarget } from '../../../../utils/api-types';
-import { getTargetOverviewLabel, getTargetOverviewUrl } from '../../../../utils/target/TargetUtils';
+import { getTargetMarkingIds, getTargetOverviewLabel, getTargetOverviewUrl } from '../../../../utils/target/TargetUtils';
+import { isFeatureEnabled } from '../../../../utils/utils';
 import NewAtomicTestingResult from './NewAtomicTestingResult';
 import TargetIcon from './TargetIcon';
 
@@ -25,6 +27,7 @@ const NewTargetListItem: React.FC<Props> = ({ onClick, target, selected }) => {
 
   const overviewUrl = getTargetOverviewUrl(target);
   const overviewLabel = t(getTargetOverviewLabel(target));
+  const markingIds = isFeatureEnabled('MARKING') ? getTargetMarkingIds(target) : [];
 
   return (
     <ListItemButton
@@ -49,19 +52,28 @@ const NewTargetListItem: React.FC<Props> = ({ onClick, target, selected }) => {
       }}
     >
       <TargetIcon target={target} />
-      <Typography
-        sx={{
-          flex: 1,
-          minWidth: 0,
-          fontSize: 13,
-          fontWeight: 600,
-          whiteSpace: 'nowrap',
-          overflow: 'hidden',
-          textOverflow: 'ellipsis',
-        }}
+      <div style={{
+        flex: 1,
+        minWidth: 0,
+        display: 'flex',
+        alignItems: 'center',
+        gap: 8,
+      }}
       >
-        {target?.target_name}
-      </Typography>
+        <Typography
+          sx={{
+            minWidth: 0,
+            fontSize: 13,
+            fontWeight: 600,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {target?.target_name}
+        </Typography>
+        {markingIds.length > 0 && <ItemMarkings markingIds={markingIds} limit={1} />}
+      </div>
       {overviewUrl && (
         <Tooltip>
           <TooltipTrigger asChild>

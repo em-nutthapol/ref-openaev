@@ -28,6 +28,9 @@ public class AiTargetTarget extends InjectTarget {
   @Queryable(filterable = true, searchable = true, sortable = true)
   private String name;
 
+  @JsonProperty("target_markings")
+  private Set<String> markings;
+
   @JsonIgnore private final String subType;
 
   @Override
