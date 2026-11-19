@@ -50,6 +50,7 @@ const AtomicTestingCreation = lazy(() => import('./components/atomic_testings/At
 const IndexAtomicTesting = lazy(() => import('./components/atomic_testings/atomic_testing/Index'));
 const Scenarios = lazy(() => import('./components/scenarios/Scenarios'));
 const IndexScenario = lazy(() => import('./components/scenarios/scenario/Index'));
+const ScenariosAvailable = lazy(() => import('./components/scenarios/catalog/ScenariosAvailable'));
 const AutonomousRun = lazy(() => import('./components/autonomous/AutonomousRun'));
 const Endpoints = lazy(() => import('./components/assets/endpoints/Endpoints'));
 const AssetDetail = lazy(() => import('./components/assets/asset/AssetDetail'));
@@ -116,6 +117,7 @@ const Index = () => {
   const chatbotMargin = useChatbotContentMargin();
   const chatbotTransition = useChatbotContentTransition(theme);
   const isCredentialAssetEnabled = isFeatureEnabled('CREDENTIAL_ASSET');
+  const isCatalogEnabled = isFeatureEnabled('CATALOG');
 
   const { currentUserTenant } = useAuth();
 
@@ -321,6 +323,7 @@ const Index = () => {
               )}
             />
             <Route path="scenarios" element={errorWrapper(Scenarios)()} />
+            {isCatalogEnabled && <Route path="scenarios/available" element={errorWrapper(ScenariosAvailable)()} />}
             <Route
               path="autonomous/:runId"
               element={(

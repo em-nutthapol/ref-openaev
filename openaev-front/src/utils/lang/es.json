@@ -4707,5 +4707,15 @@
   "Browse and version ready-to-use scenarios.": "Explore y versione escenarios listos para usar.",
   "No scenario matches these filters.": "Ningún escenario coincide con estos filtros.",
   "Last run": "Última ejecución",
-  "Never": "Nunca"
+  "Never": "Nunca",
+  "Requirements missing": "Requisitos faltantes",
+  "What's new in v{version}": "Novedades en v{version}",
+  "{name} v{version} installed": "{name} v{version} instalado",
+  "Every catalog scenario is installed": "Todos los escenarios del catálogo están instalados",
+  "New Filigran scenarios show here as soon as they are published.": "Los nuevos escenarios de Filigran aparecen aquí en cuanto se publican.",
+  "Choose the targets of the scenario. You can change them later on the scenario.": "Elija los objetivos del escenario. Puede cambiarlos más tarde en el escenario.",
+  "A chained scenario acts only inside its scope: set it on the scenario once installed.": "Un escenario encadenado solo actúa dentro de su ámbito: defínalo en el escenario una vez instalado.",
+  "Add targets if needed: a simulation starts from this scenario now.": "Añada objetivos si es necesario: una simulación comienza ahora a partir de este escenario.",
+  "A simulation starts from this scenario now, inside its scope.": "Una simulación comienza ahora a partir de este escenario, dentro de su ámbito.",
+  "Each target is added to every inject that takes its kind; the targets already set stay.": "Cada objetivo se añade a cada inject que acepta su tipo; los objetivos ya definidos se mantienen."
 }

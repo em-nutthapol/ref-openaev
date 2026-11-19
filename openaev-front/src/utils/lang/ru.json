@@ -4707,5 +4707,15 @@
   "Browse and version ready-to-use scenarios.": "Просматривайте готовые сценарии и управляйте их версиями.",
   "No scenario matches these filters.": "Нет сценариев, соответствующих этим фильтрам.",
   "Last run": "Последний запуск",
-  "Never": "Никогда"
+  "Never": "Никогда",
+  "Requirements missing": "Не хватает требований",
+  "What's new in v{version}": "Что нового в v{version}",
+  "{name} v{version} installed": "{name} v{version} установлен",
+  "Every catalog scenario is installed": "Все сценарии каталога установлены",
+  "New Filigran scenarios show here as soon as they are published.": "Новые сценарии Filigran появляются здесь сразу после публикации.",
+  "Choose the targets of the scenario. You can change them later on the scenario.": "Выберите цели сценария. Вы сможете изменить их позже в сценарии.",
+  "A chained scenario acts only inside its scope: set it on the scenario once installed.": "Цепочечный сценарий действует только в своей области: задайте её в сценарии после установки.",
+  "Add targets if needed: a simulation starts from this scenario now.": "При необходимости добавьте цели: симуляция запускается из этого сценария прямо сейчас.",
+  "A simulation starts from this scenario now, inside its scope.": "Симуляция запускается из этого сценария прямо сейчас, в пределах его области.",
+  "Each target is added to every inject that takes its kind; the targets already set stay.": "Каждая цель добавляется ко всем инжектам, принимающим её тип; уже заданные цели сохраняются."
 }

@@ -4707,5 +4707,15 @@
   "Browse and version ready-to-use scenarios.": "すぐに使えるシナリオを参照し、バージョンを管理します。",
   "No scenario matches these filters.": "これらのフィルターに一致するシナリオはありません。",
   "Last run": "最終実行",
-  "Never": "なし"
+  "Never": "なし",
+  "Requirements missing": "不足している要件",
+  "What's new in v{version}": "v{version} の新機能",
+  "{name} v{version} installed": "{name} v{version} をインストールしました",
+  "Every catalog scenario is installed": "カタログのすべてのシナリオがインストール済みです",
+  "New Filigran scenarios show here as soon as they are published.": "新しい Filigran シナリオは公開されるとすぐにここに表示されます。",
+  "Choose the targets of the scenario. You can change them later on the scenario.": "シナリオのターゲットを選択してください。後でシナリオで変更できます。",
+  "A chained scenario acts only inside its scope: set it on the scenario once installed.": "チェーン型シナリオはそのスコープ内でのみ動作します。インストール後にシナリオで設定してください。",
+  "Add targets if needed: a simulation starts from this scenario now.": "必要に応じてターゲットを追加してください。このシナリオからシミュレーションが今すぐ開始されます。",
+  "A simulation starts from this scenario now, inside its scope.": "このシナリオから、そのスコープ内でシミュレーションが今すぐ開始されます。",
+  "Each target is added to every inject that takes its kind; the targets already set stay.": "各ターゲットは、その種類を受け付けるすべてのインジェクトに追加されます。既存のターゲットは保持されます。"
 }

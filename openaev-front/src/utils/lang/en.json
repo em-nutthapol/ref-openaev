@@ -4707,5 +4707,15 @@
   "Browse and version ready-to-use scenarios.": "Browse and version ready-to-use scenarios.",
   "No scenario matches these filters.": "No scenario matches these filters.",
   "Last run": "Last run",
-  "Never": "Never"
+  "Never": "Never",
+  "Requirements missing": "Requirements missing",
+  "What's new in v{version}": "What's new in v{version}",
+  "{name} v{version} installed": "{name} v{version} installed",
+  "Every catalog scenario is installed": "Every catalog scenario is installed",
+  "New Filigran scenarios show here as soon as they are published.": "New Filigran scenarios show here as soon as they are published.",
+  "Choose the targets of the scenario. You can change them later on the scenario.": "Choose the targets of the scenario. You can change them later on the scenario.",
+  "A chained scenario acts only inside its scope: set it on the scenario once installed.": "A chained scenario acts only inside its scope: set it on the scenario once installed.",
+  "Add targets if needed: a simulation starts from this scenario now.": "Add targets if needed: a simulation starts from this scenario now.",
+  "A simulation starts from this scenario now, inside its scope.": "A simulation starts from this scenario now, inside its scope.",
+  "Each target is added to every inject that takes its kind; the targets already set stay.": "Each target is added to every inject that takes its kind; the targets already set stay."
 }

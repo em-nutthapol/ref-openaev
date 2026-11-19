@@ -4707,5 +4707,15 @@
   "Browse and version ready-to-use scenarios.": "바로 사용할 수 있는 시나리오를 살펴보고 버전을 관리하세요.",
   "No scenario matches these filters.": "이 필터와 일치하는 시나리오가 없습니다.",
   "Last run": "마지막 실행",
-  "Never": "없음"
+  "Never": "없음",
+  "Requirements missing": "누락된 요구 사항",
+  "What's new in v{version}": "v{version}의 새로운 기능",
+  "{name} v{version} installed": "{name} v{version} 설치됨",
+  "Every catalog scenario is installed": "카탈로그의 모든 시나리오가 설치되었습니다",
+  "New Filigran scenarios show here as soon as they are published.": "새 Filigran 시나리오는 게시되는 즉시 여기에 표시됩니다.",
+  "Choose the targets of the scenario. You can change them later on the scenario.": "시나리오의 대상을 선택하세요. 나중에 시나리오에서 변경할 수 있습니다.",
+  "A chained scenario acts only inside its scope: set it on the scenario once installed.": "체인 시나리오는 범위 안에서만 동작합니다. 설치 후 시나리오에서 범위를 설정하세요.",
+  "Add targets if needed: a simulation starts from this scenario now.": "필요하면 대상을 추가하세요. 이 시나리오에서 지금 시뮬레이션이 시작됩니다.",
+  "A simulation starts from this scenario now, inside its scope.": "이 시나리오에서 범위 안에서 지금 시뮬레이션이 시작됩니다.",
+  "Each target is added to every inject that takes its kind; the targets already set stay.": "각 대상은 해당 유형을 받는 모든 인젝트에 추가되며, 이미 설정된 대상은 유지됩니다."
 }

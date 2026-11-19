@@ -4707,5 +4707,15 @@
   "Browse and version ready-to-use scenarios.": "浏览并管理即用型场景的版本。",
   "No scenario matches these filters.": "没有符合这些筛选条件的场景。",
   "Last run": "上次运行",
-  "Never": "从未"
+  "Never": "从未",
+  "Requirements missing": "缺少的要求",
+  "What's new in v{version}": "v{version} 的新内容",
+  "{name} v{version} installed": "{name} v{version} 已安装",
+  "Every catalog scenario is installed": "目录中的所有场景均已安装",
+  "New Filigran scenarios show here as soon as they are published.": "新的 Filigran 场景一经发布即会显示在此处。",
+  "Choose the targets of the scenario. You can change them later on the scenario.": "选择场景的目标。之后可以在场景中更改。",
+  "A chained scenario acts only inside its scope: set it on the scenario once installed.": "链式场景仅在其范围内运行：安装后请在场景中设置范围。",
+  "Add targets if needed: a simulation starts from this scenario now.": "如有需要请添加目标：将立即从此场景启动模拟。",
+  "A simulation starts from this scenario now, inside its scope.": "将立即从此场景在其范围内启动模拟。",
+  "Each target is added to every inject that takes its kind; the targets already set stay.": "每个目标都会添加到接受该类型的每个注入中；已设置的目标保持不变。"
 }
