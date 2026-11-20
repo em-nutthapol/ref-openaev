@@ -8690,6 +8690,12 @@ export interface NotificationTriggerInput {
     | "UPDATE"
     | "DELETE"
     | "SCORE_DEGRADATION"
+    | "PAYLOAD_REVOKED"
+    | "NEW_PAYLOAD_VERSION"
+    | "REVOKED"
+    | "REVOCATION_LIFTED"
+    | "INSTALLED_AUTOMATICALLY"
+    | "RELEASE_RECEIVED"
     | "SYNC_BLOCKED"
   )[];
   /** Filter group applied to matching entities */
@@ -8804,6 +8810,12 @@ export interface NotificationTriggerOutput {
     | "UPDATE"
     | "DELETE"
     | "SCORE_DEGRADATION"
+    | "PAYLOAD_REVOKED"
+    | "NEW_PAYLOAD_VERSION"
+    | "REVOKED"
+    | "REVOCATION_LIFTED"
+    | "INSTALLED_AUTOMATICALLY"
+    | "RELEASE_RECEIVED"
     | "SYNC_BLOCKED"
   )[];
   /** Filter group applied to matching entities */
