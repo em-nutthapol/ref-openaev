@@ -1,6 +1,7 @@
 import { act, renderHook } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { usageCount } from '../../../../../admin/components/threat_arsenal/versions/usages/usageCounts';
 import useNewVersionNotice from '../../../../../admin/components/threat_arsenal/versions/useNewVersionNotice';
 import useSkipNewVersionDialog from '../../../../../admin/components/threat_arsenal/versions/useSkipNewVersionDialog';
 import { type PayloadUsagesOutput, type PayloadVersionOutput } from '../../../../../utils/api-types';
@@ -8,20 +9,24 @@ import { actionId, payloadId, payloadVersion, usage, usagesOf, versionAction } f
 
 const mocks = vi.hoisted(() => ({
   usePayloadVersions: vi.fn(),
+  useUsageCounts: vi.fn(),
   useUsagesByVersion: vi.fn(),
 }));
 
 vi.mock('../../../../../admin/components/threat_arsenal/versions/usePayloadVersions', () => ({ default: mocks.usePayloadVersions }));
+vi.mock('../../../../../admin/components/threat_arsenal/versions/usages/useUsageCounts', () => ({ default: mocks.useUsageCounts }));
 vi.mock('../../../../../admin/components/threat_arsenal/versions/usages/useUsagesByVersion', () => ({ default: mocks.useUsagesByVersion }));
 
 const SAVED_ID = actionId('1.0.0');
 
-// The versions the new action's payload has once loaded, and the usages of each one.
+// The versions the new action's payload has once loaded, their counts, and the usages of the ones asked for.
 const versionsLoaded = (usagesByVersion: Record<string, PayloadUsagesOutput>) => {
   mocks.usePayloadVersions.mockImplementation((_id: string, load: boolean) => (load ? Object.keys(usagesByVersion).map(payloadVersion) : null));
-  mocks.useUsagesByVersion.mockImplementation((versions: PayloadVersionOutput[] | null) => (versions
-    ? Object.fromEntries(Object.entries(usagesByVersion).map(([version, usages]) => [payloadId(version), usages]))
+  mocks.useUsageCounts.mockImplementation((id?: string) => (id
+    ? Object.fromEntries(Object.entries(usagesByVersion).map(([version, usages]) => [payloadId(version), usageCount(usages)]))
     : null));
+  mocks.useUsagesByVersion.mockImplementation((versions: PayloadVersionOutput[]) => Object.fromEntries(versions
+    .map(version => [version.payload_id, usagesByVersion[version.payload_version]])));
 };
 
 const renderNotice = () => {
@@ -37,6 +42,7 @@ describe('useNewVersionNotice', () => {
   beforeEach(() => {
     localStorage.clear();
     mocks.usePayloadVersions.mockReset();
+    mocks.useUsageCounts.mockReset();
     mocks.useUsagesByVersion.mockReset();
   });
 
@@ -69,6 +75,7 @@ describe('useNewVersionNotice', () => {
     expect(onUpdate).not.toHaveBeenCalled();
     expect(result.current.notice?.action).toEqual(versionAction('1.1.0'));
     expect(result.current.notice?.olderVersions.map(older => older.version.payload_version)).toEqual(['1.0.0']);
+    expect(mocks.useUsagesByVersion).toHaveBeenLastCalledWith([payloadVersion('1.0.0')]);
   });
 
   it('given_noticeClosed_should_replaceTheCard', () => {
@@ -102,12 +109,14 @@ describe('useNewVersionNotice', () => {
     // Assert
     expect(onUpdate).toHaveBeenCalledWith(versionAction('1.1.0'), SAVED_ID);
     expect(result.current.notice).toBeNull();
+    expect(mocks.useUsagesByVersion).toHaveBeenLastCalledWith([]);
   });
 
   it('given_usagesStillLoading_should_waitWithoutNotice', () => {
     // Arrange
     mocks.usePayloadVersions.mockReturnValue([payloadVersion('1.1.0'), payloadVersion('1.0.0')]);
-    mocks.useUsagesByVersion.mockReturnValue(null);
+    mocks.useUsageCounts.mockReturnValue({ [payloadId('1.0.0')]: 1 });
+    mocks.useUsagesByVersion.mockReturnValue({});
     const { result, onUpdate } = renderNotice();
 
     // Act

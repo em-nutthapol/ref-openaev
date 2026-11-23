@@ -1,7 +1,7 @@
 import { Alert, Button, Chip, Skeleton, Text } from '@filigran/design-system';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
-import { type FunctionComponent, useState } from 'react';
+import { type FunctionComponent, useEffect, useState } from 'react';
 
 import { fdsGroupRowStyle, fdsTableFrameStyle } from '../../../../components/common/fdsTableSpec';
 import { LIB_SURFACE_LAYER } from '../../../../components/common/libSurfaceBorder';
@@ -15,7 +15,7 @@ import OlderVersionsNote from './OlderVersionsNote';
 import PayloadUsageMoveBar from './usages/PayloadUsageMoveBar';
 import PayloadUsageMoveResult from './usages/PayloadUsageMoveResult';
 import PayloadUsagesTable from './usages/PayloadUsagesTable';
-import { olderVersionsInUse, totalUsageCount, usageCount } from './usages/usageCounts';
+import { olderUsageCount, type UsageCounts } from './usages/usageCounts';
 import useUsageMove from './usages/useUsageMove';
 import useFocusMove from './useFocusMove';
 import useOlderVersionsKept from './useOlderVersionsKept';
@@ -24,18 +24,24 @@ import { versionRows } from './versionRows';
 interface VersionProps {
   version: PayloadVersionOutput;
   versions: PayloadVersionOutput[];
+  // Undefined while the counts load.
+  count: number | undefined;
   usages: PayloadUsagesOutput | null;
+  onOpen: (version: PayloadVersionOutput) => void;
   canMove: boolean;
   onMoved: () => void;
   // Opened from the New version dialog: an older version in use opens with every usage ticked; the latest stays folded.
   focusMove: boolean;
 }
 
-const PayloadVersion: FunctionComponent<VersionProps> = ({ version, versions, usages, canMove, onMoved, focusMove }) => {
+const PayloadVersion: FunctionComponent<VersionProps> = ({ version, versions, count, usages, onOpen, canMove, onMoved, focusMove }) => {
   const { t } = useFormatter();
   const theme = useTheme();
   const counted = useCountLabel();
   const [expanded, setExpanded] = useState(version.payload_is_latest && !focusMove);
+  useEffect(() => {
+    if (expanded) onOpen(version);
+  }, [expanded]);
   const move = useUsageMove({
     source: version,
     versions,
@@ -44,21 +50,20 @@ const PayloadVersion: FunctionComponent<VersionProps> = ({ version, versions, us
   });
   const row = useFocusMove({
     version,
+    count: count ?? 0,
     usages,
     active: focusMove && canMove,
-    onFocus: (focused) => {
-      setExpanded(true);
-      move.selection.setSelectedElements(Object.fromEntries(focused.payload_usages.map(usage => [usage.usage_id, usage])));
-    },
+    onFocus: () => setExpanded(true),
+    onLoaded: loaded => move.selection.setSelectedElements(Object.fromEntries(loaded.payload_usages.map(usage => [usage.usage_id, usage]))),
   });
 
   return (
     <div ref={row}>
       <button type="button" style={fdsGroupRowStyle(theme)} aria-expanded={expanded} onClick={() => setExpanded(!expanded)}>
         <Text variant="content-base-bold">{`v${version.payload_version}`}</Text>
-        {usages && (
+        {count !== undefined && (
           <Text variant="content-base" className="text-default-secondary">
-            {`(${counted(usageCount(usages), '1 inject', '{count} injects')})`}
+            {`(${counted(count, '1 inject', '{count} injects')})`}
           </Text>
         )}
         {version.payload_revoked && <Chip label={t('Revoked')} severity="critical" />}
@@ -106,7 +111,10 @@ const NotInstalledVersion: FunctionComponent<NotInstalledProps> = ({ version, in
 
 interface Props {
   versions: PayloadVersionOutput[] | null;
-  usages: Record<string, PayloadUsagesOutput> | null;
+  counts: UsageCounts | null;
+  // Loaded when a version is opened.
+  usages: Record<string, PayloadUsagesOutput>;
+  onOpen: (version: PayloadVersionOutput) => void;
   // A move changes the usages of two versions: they are all loaded again.
   onMoved: () => void;
   notInstalled?: string[];
@@ -116,12 +124,12 @@ interface Props {
   onInstall?: (version: string) => void;
 }
 
-const PayloadVersionsTab: FunctionComponent<Props> = ({ versions, usages, onMoved, notInstalled, focusMove = false, installing, onInstall }) => {
+const PayloadVersionsTab: FunctionComponent<Props> = ({ versions, counts, usages, onOpen, onMoved, notInstalled, focusMove = false, installing, onInstall }) => {
   const theme = useTheme();
   const canMove = useAbility().can(ACTIONS.MANAGE, SUBJECTS.THREAT_ARSENALS);
   const latest = versions?.find(version => version.payload_is_latest);
   const { kept, toggle } = useOlderVersionsKept(latest);
-  const olderUsages = versions && usages && latest ? totalUsageCount(olderVersionsInUse(versions, usages, latest.payload_action_id)) : 0;
+  const olderUsages = versions && counts && latest ? olderUsageCount(versions, counts, latest.payload_action_id) : 0;
 
   if (versions === null) {
     return <Skeleton className="h-24" />;
@@ -143,7 +151,9 @@ const PayloadVersionsTab: FunctionComponent<Props> = ({ versions, usages, onMove
                 key={installed.payload_id}
                 version={installed}
                 versions={versions}
-                usages={usages?.[installed.payload_id] ?? null}
+                count={counts ? counts[installed.payload_id] ?? 0 : undefined}
+                usages={usages[installed.payload_id] ?? null}
+                onOpen={onOpen}
                 canMove={canMove}
                 onMoved={onMoved}
                 focusMove={focusMove}
