@@ -5209,5 +5209,6 @@
   "1 edit of yours": "1 Ihrer Änderungen",
   "{count} edits of yours": "{count} Ihrer Änderungen",
   "After: add targets to 1 new inject.": "Danach: Ziele zu 1 neuen Inject hinzufügen.",
-  "After: add targets to {count} new injects.": "Danach: Ziele zu {count} neuen Injects hinzufügen."
+  "After: add targets to {count} new injects.": "Danach: Ziele zu {count} neuen Injects hinzufügen.",
+  "What's new in Filigran v{version}": "Neu in Filigran v{version}"
 }

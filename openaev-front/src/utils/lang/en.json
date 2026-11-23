@@ -5209,5 +5209,6 @@
   "1 edit of yours": "1 edit of yours",
   "{count} edits of yours": "{count} edits of yours",
   "After: add targets to 1 new inject.": "After: add targets to 1 new inject.",
-  "After: add targets to {count} new injects.": "After: add targets to {count} new injects."
+  "After: add targets to {count} new injects.": "After: add targets to {count} new injects.",
+  "What's new in Filigran v{version}": "What's new in Filigran v{version}"
 }

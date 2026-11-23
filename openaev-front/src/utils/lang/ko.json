@@ -5209,5 +5209,6 @@
   "1 edit of yours": "내 수정 1개",
   "{count} edits of yours": "내 수정 {count}개",
   "After: add targets to 1 new inject.": "적용 후: 새 인젝트 1개에 대상을 추가하세요.",
-  "After: add targets to {count} new injects.": "적용 후: 새 인젝트 {count}개에 대상을 추가하세요."
+  "After: add targets to {count} new injects.": "적용 후: 새 인젝트 {count}개에 대상을 추가하세요.",
+  "What's new in Filigran v{version}": "Filigran v{version}의 새로운 기능"
 }
