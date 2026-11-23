@@ -5136,5 +5136,9 @@
   "{count} injects still use {versions}.": "{count} inject usano ancora {versions}.",
   "Keep it on v{version}": "Tienilo su v{version}",
   "Keep them on v{version}": "Tienili su v{version}",
-  "Move it below, or keep it where it is.": "Spostalo qui sotto o lascialo dov'è."
+  "Move it below, or keep it where it is.": "Spostalo qui sotto o lascialo dov'è.",
+  "1 to fix before launch": "1 da correggere prima dell'avvio",
+  "{count} to fix before launch": "{count} da correggere prima dell'avvio",
+  "1 to check before launch": "1 punto da verificare prima dell'avvio",
+  "{count} to check before launch": "{count} punti da verificare prima dell'avvio"
 }

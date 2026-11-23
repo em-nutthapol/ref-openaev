@@ -5136,5 +5136,9 @@
   "{count} injects still use {versions}.": "{count} 件のインジェクトがまだ {versions} を使用しています。",
   "Keep it on v{version}": "v{version} のままにする",
   "Keep them on v{version}": "v{version} のままにする",
-  "Move it below, or keep it where it is.": "下で移動するか、そのままにしてください。"
+  "Move it below, or keep it where it is.": "下で移動するか、そのままにしてください。",
+  "1 to fix before launch": "起動前に修正が必要: 1 件",
+  "{count} to fix before launch": "起動前に修正が必要: {count} 件",
+  "1 to check before launch": "起動前に確認する項目 1 件",
+  "{count} to check before launch": "起動前に確認する項目 {count} 件"
 }

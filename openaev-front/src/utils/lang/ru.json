@@ -5136,5 +5136,9 @@
   "{count} injects still use {versions}.": "Инжекты ({count}) всё ещё используют {versions}.",
   "Keep it on v{version}": "Оставить на v{version}",
   "Keep them on v{version}": "Оставить на v{version}",
-  "Move it below, or keep it where it is.": "Переместите его ниже или оставьте как есть."
+  "Move it below, or keep it where it is.": "Переместите его ниже или оставьте как есть.",
+  "1 to fix before launch": "Исправить перед запуском: 1",
+  "{count} to fix before launch": "Исправить перед запуском: {count}",
+  "1 to check before launch": "1 пункт проверить перед запуском",
+  "{count} to check before launch": "Пунктов проверить перед запуском: {count}"
 }

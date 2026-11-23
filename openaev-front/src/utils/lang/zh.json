@@ -5136,5 +5136,9 @@
   "{count} injects still use {versions}.": "{count} 个注入仍在使用 {versions}。",
   "Keep it on v{version}": "保留在 v{version}",
   "Keep them on v{version}": "保留在 v{version}",
-  "Move it below, or keep it where it is.": "在下方移动它，或保持不变。"
+  "Move it below, or keep it where it is.": "在下方移动它，或保持不变。",
+  "1 to fix before launch": "启动前需修复 1 项",
+  "{count} to fix before launch": "启动前需修复 {count} 项",
+  "1 to check before launch": "启动前需检查 1 项",
+  "{count} to check before launch": "启动前需检查 {count} 项"
 }

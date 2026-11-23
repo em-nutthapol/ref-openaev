@@ -5136,5 +5136,9 @@
   "{count} injects still use {versions}.": "인젝트 {count}개가 아직 {versions}을(를) 사용합니다.",
   "Keep it on v{version}": "v{version}에 유지",
   "Keep them on v{version}": "v{version}에 유지",
-  "Move it below, or keep it where it is.": "아래에서 이동하거나 그대로 두세요."
+  "Move it below, or keep it where it is.": "아래에서 이동하거나 그대로 두세요.",
+  "1 to fix before launch": "실행 전 수정 필요 1개",
+  "{count} to fix before launch": "실행 전 수정 필요 {count}개",
+  "1 to check before launch": "실행 전 확인할 항목 1개",
+  "{count} to check before launch": "실행 전 확인할 항목 {count}개"
 }

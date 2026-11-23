@@ -5136,5 +5136,9 @@
   "{count} injects still use {versions}.": "{count} injects still use {versions}.",
   "Keep it on v{version}": "Keep it on v{version}",
   "Keep them on v{version}": "Keep them on v{version}",
-  "Move it below, or keep it where it is.": "Move it below, or keep it where it is."
+  "Move it below, or keep it where it is.": "Move it below, or keep it where it is.",
+  "1 to fix before launch": "1 to fix before launch",
+  "{count} to fix before launch": "{count} to fix before launch",
+  "1 to check before launch": "1 to check before launch",
+  "{count} to check before launch": "{count} to check before launch"
 }
