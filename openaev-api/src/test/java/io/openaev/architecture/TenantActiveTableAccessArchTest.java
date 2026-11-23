@@ -4715,8 +4715,9 @@ class TenantActiveTableAccessArchTest {
               ProductInventoryMetricCollector.class,
               // Background indexing fetch path, under the sweep's allTenants() scope:
               InjectHandler.class,
-              // Reached only from the threat arsenal usages endpoint, a read-only transaction
-              // that carries a TxCtx and passes the one tenant of its scope to the query:
+              // Reached only from the threat arsenal usages and usage counts endpoints, read-only
+              // transactions that carry a TxCtx and pass the one tenant of their scope to the
+              // query:
               PayloadVersionService.class)
           .should()
           .dependOnClassesThat()
