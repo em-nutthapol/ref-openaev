@@ -1373,6 +1373,7 @@ export interface AttackPathExecutionDetailDTO {
   findings?: AttackPathExecutionFindingItemDTO[];
   injectId?: string;
   injectorCommandLine?: string;
+  loggingStatus?: string;
   payloadId?: string;
   payloadName?: string;
   preventionStatus?: string;
@@ -1413,6 +1414,7 @@ export interface AttackPathFindingPageDTO {
 
 export interface AttackPathFindingVerdictsDTO {
   detection?: string;
+  logging?: string;
   prevention?: string;
   vulnerability?: string;
 }
