@@ -47,6 +47,7 @@ class MessageComponent extends Component {
   }
 
   render() {
+    // A message is a text or an element (a text with a link): an element is shown as it is.
     const { text, error, open, sticky } = this.state;
     return (
       <Snackbar
@@ -60,14 +61,14 @@ class MessageComponent extends Component {
       >
         {error ? (
           <Alert severity="error" onClose={this.handleCloseMessage.bind(this)}>
-            {text.length > 0 && text}
+            {(typeof text !== 'string' || text.length > 0) && text}
           </Alert>
         ) : (
           <Alert
             severity="success"
             onClose={this.handleCloseMessage.bind(this)}
           >
-            {text.length > 0 && text}
+            {(typeof text !== 'string' || text.length > 0) && text}
           </Alert>
         )}
       </Snackbar>
