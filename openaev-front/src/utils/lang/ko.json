@@ -5213,5 +5213,6 @@
   "1 edit of yours": "내 수정 1개",
   "{count} edits of yours": "내 수정 {count}개",
   "After: add targets to 1 new inject.": "적용 후: 새 인젝트 1개에 대상을 추가하세요.",
-  "After: add targets to {count} new injects.": "적용 후: 새 인젝트 {count}개에 대상을 추가하세요."
+  "After: add targets to {count} new injects.": "적용 후: 새 인젝트 {count}개에 대상을 추가하세요.",
+  "The preview didn't load. Nothing was changed.": "미리보기를 불러오지 못했습니다. 아무것도 변경되지 않았습니다."
 }

@@ -5213,5 +5213,6 @@
   "1 edit of yours": "1 ваше изменение",
   "{count} edits of yours": "Ваших изменений: {count}",
   "After: add targets to 1 new inject.": "Затем: добавьте цели к 1 новому инжекту.",
-  "After: add targets to {count} new injects.": "Затем: добавьте цели к новым инжектам ({count})."
+  "After: add targets to {count} new injects.": "Затем: добавьте цели к новым инжектам ({count}).",
+  "The preview didn't load. Nothing was changed.": "Предпросмотр не загрузился. Ничего не изменено."
 }
