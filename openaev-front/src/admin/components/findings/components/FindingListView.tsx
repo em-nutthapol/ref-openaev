@@ -17,6 +17,12 @@ import { OpenCrqRowMark } from '../../../../components/xtm/XtmOpenCrq';
 import { OpenCtiRowMark } from '../../../../components/xtm/XtmPivot';
 import { type AggregatedFindingOutput, type TargetSimple } from '../../../../utils/api-types';
 import ContractOutputElementType from '../ContractOutputElementType';
+import {ConnectorLogo} from "../../integrations/catalog_connectors/ConnectorParts";
+import InjectIcon from "../../common/injects/InjectIcon";
+import CollectorIcon from "../../common/collectors/CollectorIcon";
+import InjectorIcon from "../../common/injectors/InjectorIcon";
+import CustomTooltip from "../../../../components/CustomTooltip";
+import FindingSource from "./FindingSource";
 
 interface Props {
   loading: boolean;
@@ -126,7 +132,7 @@ const FindingListView = ({ loading, findings, queryableHelpers, hiddenFields = [
       field: 'finding_sources',
       label: 'Sources',
       isSortable: false,
-      value: (finding: AggregatedFindingOutput) => finding.finding_sources?.map(source => source.injector_type).join(','),
+      value: (finding: AggregatedFindingOutput) => <FindingSource sources={finding.finding_sources?.sort()} />
     },
     {
       field: 'finding_created_at',
