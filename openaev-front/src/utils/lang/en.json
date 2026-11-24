@@ -3316,7 +3316,6 @@
   "Passwords do no match": "Passwords do no match",
   "Paste text to analyse for selected TTPs.": "Paste text to analyse for selected TTPs.",
   "Paste your Filigran OpenAEV Enterprise Edition license": "Paste your Filigran OpenAEV Enterprise Edition license",
-  "Pastel colours": "Pastel colours",
   "Pause": "Pause",
   "Paused": "Paused",
   "Pausing a chained simulation is not allowed yet, please contact support": "Pausing a chained simulation is not allowed yet, please contact support",
@@ -4864,6 +4863,7 @@
   "What must succeed or fail for this inject to be scored.": "What must succeed or fail for this inject to be scored.",
   "What will fail:": "What will fail:",
   "What worked well": "What worked well",
+  "What's new in Filigran v{version}": "What's new in Filigran v{version}",
   "What's new in v{version}": "What's new in v{version}",
   "When": "When",
   "When enabled, credentials submitted by recipients (username and password) are captured and tracked per target. When disabled, only the submission event is recorded - passwords are never stored.": "When enabled, credentials submitted by recipients (username and password) are captured and tracked per target. When disabled, only the submission event is recorded - passwords are never stored.",
@@ -5067,7 +5067,6 @@
   "Select": "Select",
   "Show hidden nodes": "Show hidden nodes",
   "Show or hide the legend": "Show or hide the legend",
-  "Show chips in soft pastel fills instead of the standard outlined colours.": "Show chips in soft pastel fills instead of the standard outlined colours.",
   "Show this list": "Show this list",
   "Show this type": "Show this type",
   "Ungroup": "Ungroup",
@@ -5176,6 +5175,11 @@
   "Open the connection guide to connect XTM One.": "Open the connection guide to connect XTM One.",
   "Ask an administrator to connect XTM One to see this asset there.": "Ask an administrator to connect XTM One to see this asset there.",
   "See this asset in the XTM One CTEM inventory, with every source that reports it.": "See this asset in the XTM One CTEM inventory, with every source that reports it.",
+  "Across the XTM Platform": "Across the XTM Platform",
+  "Not found across the XTM Platform": "Not found across the XTM Platform",
+  "Found": "Found",
+  "Not found": "Not found",
+  "Unavailable": "Unavailable",
   "(empty)": "(empty)",
   "After the rollback · revision #{number} (v{version})": "After the rollback · revision #{number} (v{version})",
   "After the update · v{version}": "After the update · v{version}",
@@ -5209,6 +5213,5 @@
   "1 edit of yours": "1 edit of yours",
   "{count} edits of yours": "{count} edits of yours",
   "After: add targets to 1 new inject.": "After: add targets to 1 new inject.",
-  "After: add targets to {count} new injects.": "After: add targets to {count} new injects.",
-  "What's new in Filigran v{version}": "What's new in Filigran v{version}"
+  "After: add targets to {count} new injects.": "After: add targets to {count} new injects."
 }

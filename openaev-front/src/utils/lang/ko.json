@@ -3316,7 +3316,6 @@
   "Passwords do no match": "비밀번호가 일치하지 않음",
   "Paste text to analyse for selected TTPs.": "선택한 TTP에 대해 분석할 텍스트를 붙여넣습니다.",
   "Paste your Filigran OpenAEV Enterprise Edition license": "필리그란 OpenAEV 엔터프라이즈 에디션 라이선스 붙여넣기",
-  "Pastel colours": "파스텔 색상",
   "Pause": "일시 중지",
   "Paused": "일시 중지됨",
   "Pausing a chained simulation is not allowed yet, please contact support": "연쇄 시뮬레이션을 일시 중지하는 기능은 아직 지원되지 않습니다. 지원팀에 문의해 주십시오.",
@@ -4864,6 +4863,7 @@
   "What must succeed or fail for this inject to be scored.": "이 인젝트가 채점되기 위해 성공하거나 실패해야 하는 항목.",
   "What will fail:": "실패할 항목:",
   "What worked well": "잘된 점",
+  "What's new in Filigran v{version}": "Filigran v{version}의 새로운 기능",
   "What's new in v{version}": "v{version}의 새로운 기능",
   "When": "시기",
   "When enabled, credentials submitted by recipients (username and password) are captured and tracked per target. When disabled, only the submission event is recorded - passwords are never stored.": "활성화하면 수신자가 제출한 자격 증명(사용자 이름 및 비밀번호)이 대상별로 캡처되고 추적됩니다. 비활성화하면 제출 이벤트만 기록되며 비밀번호는 절대 저장되지 않습니다.",
@@ -5067,7 +5067,6 @@
   "Select": "선택",
   "Show hidden nodes": "숨긴 노드 표시",
   "Show or hide the legend": "범례 표시 또는 숨기기",
-  "Show chips in soft pastel fills instead of the standard outlined colours.": "칩을 표준 윤곽선 색상 대신 부드러운 파스텔 색상으로 표시합니다.",
   "Show this list": "이 목록 표시",
   "Show this type": "이 유형 표시",
   "Ungroup": "그룹 해제",
@@ -5176,6 +5175,11 @@
   "Open the connection guide to connect XTM One.": "연결 가이드를 열어 XTM One을 연결하세요.",
   "Ask an administrator to connect XTM One to see this asset there.": "이 자산을 XTM One에서 보려면 관리자에게 XTM One 연결을 요청하세요.",
   "See this asset in the XTM One CTEM inventory, with every source that reports it.": "XTM One CTEM 인벤토리에서 이 자산과 이를 보고하는 모든 소스를 확인하세요.",
+  "Across the XTM Platform": "XTM 플랫폼 전체",
+  "Not found across the XTM Platform": "XTM 플랫폼에서 찾을 수 없음",
+  "Found": "찾음",
+  "Not found": "찾을 수 없음",
+  "Unavailable": "사용할 수 없음",
   "(empty)": "(비어 있음)",
   "After the rollback · revision #{number} (v{version})": "롤백 후 · 리비전 #{number} (v{version})",
   "After the update · v{version}": "업데이트 후 · v{version}",
@@ -5209,6 +5213,5 @@
   "1 edit of yours": "내 수정 1개",
   "{count} edits of yours": "내 수정 {count}개",
   "After: add targets to 1 new inject.": "적용 후: 새 인젝트 1개에 대상을 추가하세요.",
-  "After: add targets to {count} new injects.": "적용 후: 새 인젝트 {count}개에 대상을 추가하세요.",
-  "What's new in Filigran v{version}": "Filigran v{version}의 새로운 기능"
+  "After: add targets to {count} new injects.": "적용 후: 새 인젝트 {count}개에 대상을 추가하세요."
 }

@@ -3316,7 +3316,6 @@
   "Passwords do no match": "パスワードが一致しません",
   "Paste text to analyse for selected TTPs.": "選択されたTTPを分析するためにテキストを貼り付ける。",
   "Paste your Filigran OpenAEV Enterprise Edition license": "Filigran OpenAEV Enterprise Edition のライセンスを貼り付ける。",
-  "Pastel colours": "パステルカラー",
   "Pause": "一時停止",
   "Paused": "一時停止",
   "Pausing a chained simulation is not allowed yet, please contact support": "連鎖シミュレーションの一時停止は現時点では許可されていません。サポートまでお問い合わせください",
@@ -4864,6 +4863,7 @@
   "What must succeed or fail for this inject to be scored.": "このインジェクトが採点されるために成功または失敗すべき条件。",
   "What will fail:": "失敗するもの：",
   "What worked well": "うまくいったこと",
+  "What's new in Filigran v{version}": "Filigran v{version} の新機能",
   "What's new in v{version}": "v{version} の新機能",
   "When": "時期",
   "When enabled, credentials submitted by recipients (username and password) are captured and tracked per target. When disabled, only the submission event is recorded - passwords are never stored.": "有効にすると、受信者が送信した認証情報（ユーザー名とパスワード）がターゲットごとにキャプチャされ追跡されます。無効にすると、送信イベントのみが記録され、パスワードは保存されません。",
@@ -5067,7 +5067,6 @@
   "Select": "選択",
   "Show hidden nodes": "非表示のノードを表示",
   "Show or hide the legend": "凡例の表示・非表示",
-  "Show chips in soft pastel fills instead of the standard outlined colours.": "チップを標準の枠線付きの色ではなく柔らかいパステルカラーで表示します。",
   "Show this list": "この一覧を表示",
   "Show this type": "このタイプを表示",
   "Ungroup": "グループ解除",
@@ -5176,6 +5175,11 @@
   "Open the connection guide to connect XTM One.": "接続ガイドを開いて XTM One を接続します。",
   "Ask an administrator to connect XTM One to see this asset there.": "このアセットを XTM One で表示するには、管理者に XTM One の接続を依頼してください。",
   "See this asset in the XTM One CTEM inventory, with every source that reports it.": "XTM One の CTEM インベントリで、このアセットとその報告元のすべてのソースを確認します。",
+  "Across the XTM Platform": "XTM プラットフォーム全体",
+  "Not found across the XTM Platform": "XTM プラットフォームで見つかりません",
+  "Found": "見つかりました",
+  "Not found": "見つかりません",
+  "Unavailable": "利用できません",
   "(empty)": "（空）",
   "After the rollback · revision #{number} (v{version})": "ロールバック後 · リビジョン #{number} (v{version})",
   "After the update · v{version}": "更新後 · v{version}",
@@ -5209,6 +5213,5 @@
   "1 edit of yours": "あなたの変更 1 件",
   "{count} edits of yours": "あなたの変更 {count} 件",
   "After: add targets to 1 new inject.": "適用後: 新しいインジェクト 1 件にターゲットを追加してください。",
-  "After: add targets to {count} new injects.": "適用後: 新しいインジェクト {count} 件にターゲットを追加してください。",
-  "What's new in Filigran v{version}": "Filigran v{version} の新機能"
+  "After: add targets to {count} new injects.": "適用後: 新しいインジェクト {count} 件にターゲットを追加してください。"
 }

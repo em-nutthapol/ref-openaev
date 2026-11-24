@@ -3316,7 +3316,6 @@
   "Passwords do no match": "Passwörter stimmen nicht überein",
   "Paste text to analyse for selected TTPs.": "Text zur Analyse für ausgewählte TTPs einfügen.",
   "Paste your Filigran OpenAEV Enterprise Edition license": "Fügen Sie Ihre Filigran-OpenAEV-Enterprise-Edition-Lizenz ein",
-  "Pastel colours": "Pastellfarben",
   "Pause": "Pause",
   "Paused": "Pausiert",
   "Pausing a chained simulation is not allowed yet, please contact support": "Das Anhalten einer verketteten Simulation ist derzeit noch nicht zulässig; wenden Sie sich bitte an den Support",
@@ -4864,6 +4863,7 @@
   "What must succeed or fail for this inject to be scored.": "Was erfolgreich sein oder fehlschlagen muss, damit dieser Inject bewertet wird.",
   "What will fail:": "Was fehlschlagen wird:",
   "What worked well": "Was gut funktionierte",
+  "What's new in Filigran v{version}": "Neu in Filigran v{version}",
   "What's new in v{version}": "Neu in v{version}",
   "When": "Wann",
   "When enabled, credentials submitted by recipients (username and password) are captured and tracked per target. When disabled, only the submission event is recorded - passwords are never stored.": "Wenn aktiviert, werden die von den Empfängern übermittelten Anmeldedaten (Benutzername und Passwort) erfasst und pro Ziel nachverfolgt. Wenn deaktiviert, wird nur das Übermittlungsereignis aufgezeichnet - Passwörter werden niemals gespeichert.",
@@ -5067,7 +5067,6 @@
   "Select": "Auswählen",
   "Show hidden nodes": "Ausgeblendete Knoten anzeigen",
   "Show or hide the legend": "Legende ein- oder ausblenden",
-  "Show chips in soft pastel fills instead of the standard outlined colours.": "Chips in sanften Pastellfarben statt in den umrandeten Standardfarben anzeigen.",
   "Show this list": "Diese Liste anzeigen",
   "Show this type": "Diesen Typ anzeigen",
   "Ungroup": "Gruppierung aufheben",
@@ -5176,6 +5175,11 @@
   "Open the connection guide to connect XTM One.": "Öffnen Sie die Verbindungsanleitung, um XTM One zu verbinden.",
   "Ask an administrator to connect XTM One to see this asset there.": "Bitten Sie einen Administrator, XTM One zu verbinden, um dieses Asset dort zu sehen.",
   "See this asset in the XTM One CTEM inventory, with every source that reports it.": "Sehen Sie dieses Asset im CTEM-Inventar von XTM One, mit jeder Quelle, die es meldet.",
+  "Across the XTM Platform": "In der XTM-Plattform",
+  "Not found across the XTM Platform": "In der XTM-Plattform nicht gefunden",
+  "Found": "Gefunden",
+  "Not found": "Nicht gefunden",
+  "Unavailable": "Nicht verfügbar",
   "(empty)": "(leer)",
   "After the rollback · revision #{number} (v{version})": "Nach dem Zurücksetzen · Revision #{number} (v{version})",
   "After the update · v{version}": "Nach dem Update · v{version}",
@@ -5209,6 +5213,5 @@
   "1 edit of yours": "1 Ihrer Änderungen",
   "{count} edits of yours": "{count} Ihrer Änderungen",
   "After: add targets to 1 new inject.": "Danach: Ziele zu 1 neuen Inject hinzufügen.",
-  "After: add targets to {count} new injects.": "Danach: Ziele zu {count} neuen Injects hinzufügen.",
-  "What's new in Filigran v{version}": "Neu in Filigran v{version}"
+  "After: add targets to {count} new injects.": "Danach: Ziele zu {count} neuen Injects hinzufügen."
 }

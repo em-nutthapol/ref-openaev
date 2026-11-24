@@ -3316,7 +3316,6 @@
   "Passwords do no match": "密码不匹配",
   "Paste text to analyse for selected TTPs.": "为选定的 TTPs 粘贴要分析的文本。",
   "Paste your Filigran OpenAEV Enterprise Edition license": "粘贴您的 Filigran OpenAEV 企业版许可证",
-  "Pastel colours": "柔和色",
   "Pause": "暂停",
   "Paused": "已暂停",
   "Pausing a chained simulation is not allowed yet, please contact support": "目前尚不允许暂停链式模拟，请联系支持团队",
@@ -4864,6 +4863,7 @@
   "What must succeed or fail for this inject to be scored.": "此注入被评分所需成功或失败的条件。",
   "What will fail:": "将会失败的内容：",
   "What worked well": "效果较好地方",
+  "What's new in Filigran v{version}": "Filigran v{version} 的新内容",
   "What's new in v{version}": "v{version} 的新内容",
   "When": "时间",
   "When enabled, credentials submitted by recipients (username and password) are captured and tracked per target. When disabled, only the submission event is recorded - passwords are never stored.": "启用后，收件人提交的凭据（用户名和密码）将按目标捕获并跟踪。禁用后，仅记录提交事件，绝不存储密码。",
@@ -5067,7 +5067,6 @@
   "Select": "选择",
   "Show hidden nodes": "显示隐藏的节点",
   "Show or hide the legend": "显示或隐藏图例",
-  "Show chips in soft pastel fills instead of the standard outlined colours.": "以柔和的粉彩填充而非标准描边颜色显示标签。",
   "Show this list": "显示此列表",
   "Show this type": "显示此类型",
   "Ungroup": "取消分组",
@@ -5176,6 +5175,11 @@
   "Open the connection guide to connect XTM One.": "打开连接指南以连接 XTM One。",
   "Ask an administrator to connect XTM One to see this asset there.": "请管理员连接 XTM One，以便在其中查看此资产。",
   "See this asset in the XTM One CTEM inventory, with every source that reports it.": "在 XTM One CTEM 清单中查看此资产及报告它的每个来源。",
+  "Across the XTM Platform": "整个 XTM 平台",
+  "Not found across the XTM Platform": "在 XTM 平台中未找到",
+  "Found": "已找到",
+  "Not found": "未找到",
+  "Unavailable": "不可用",
   "(empty)": "（空）",
   "After the rollback · revision #{number} (v{version})": "回滚后 · 修订 #{number} (v{version})",
   "After the update · v{version}": "更新后 · v{version}",
@@ -5209,6 +5213,5 @@
   "1 edit of yours": "你的 1 处修改",
   "{count} edits of yours": "你的 {count} 处修改",
   "After: add targets to 1 new inject.": "之后：为 1 个新注入添加目标。",
-  "After: add targets to {count} new injects.": "之后：为 {count} 个新注入添加目标。",
-  "What's new in Filigran v{version}": "Filigran v{version} 的新内容"
+  "After: add targets to {count} new injects.": "之后：为 {count} 个新注入添加目标。"
 }
