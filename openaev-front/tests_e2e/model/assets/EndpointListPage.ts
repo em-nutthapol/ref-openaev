@@ -13,8 +13,8 @@ class EndpointListPage {
     await this.page.waitForURL('**/admin/assets**');
   }
 
-  getEndpointByHostname(hostname: string): Locator {
-    return this.listContainer.filter({ hasText: hostname });
+  getEndpointByName(name: string): Locator {
+    return this.listContainer.filter({ hasText: name });
   }
 }
 
