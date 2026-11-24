@@ -28,7 +28,8 @@ interface Props {
 const inlineStyles: Record<string, CSSProperties> = ({
   finding_type: { width: '13%' },
   finding_value: { width: '27%' },
-  finding_assets: { width: '32%' },
+  finding_assets: { width: '22%' },
+  finding_sources: { width: '10%' },
   finding_created_at: { width: '14%' },
   finding_updated_at: { width: '14%' },
 });
@@ -120,6 +121,12 @@ const FindingListView = ({ loading, findings, queryableHelpers, hiddenFields = [
           })) as TargetSimple[]}
         />
       ),
+    },
+    {
+      field: 'finding_sources',
+      label: 'Sources',
+      isSortable: false,
+      value: (finding: AggregatedFindingOutput) => finding.finding_sources?.map(source => source.injector_type).join(','),
     },
     {
       field: 'finding_created_at',

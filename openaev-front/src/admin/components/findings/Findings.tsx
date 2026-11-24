@@ -32,6 +32,7 @@ const Findings = () => {
     'finding_updated_at',
     'finding_asset_groups',
     'finding_assets',
+    'finding_sources',
   ];
 
   const { queryableHelpers, searchPaginationInput } = useQueryableWithLocalStorage(
