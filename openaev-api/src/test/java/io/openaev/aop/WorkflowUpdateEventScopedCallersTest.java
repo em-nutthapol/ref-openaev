@@ -50,7 +50,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -70,7 +69,6 @@ import org.springframework.test.web.servlet.MockMvc;
  * transaction, as in production. The rows are committed in their own tenant and removed with it.
  */
 @WithMockUser(isAdmin = true)
-@TestPropertySource(properties = "openaev.tenant.active-tables=collectors,workflows,steps")
 @DisplayName("A scoped expectation update notifies the chaining step that runs the inject")
 class WorkflowUpdateEventScopedCallersTest extends IntegrationTest {
 
