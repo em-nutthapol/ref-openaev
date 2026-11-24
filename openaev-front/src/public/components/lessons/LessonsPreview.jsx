@@ -47,11 +47,9 @@ const LessonsPreview = (props) => {
 
   const validate = (values) => {
     const errors = {};
-    const requiredFields = R.flatten(
-      lessonsQuestions.map(question => [
-        `${question.lessonsquestion_id}_score`,
-      ]),
-    );
+    const requiredFields = lessonsQuestions.map(question => [
+      `${question.lessonsquestion_id}_score`,
+    ]).flat(Infinity);
     requiredFields.forEach((field) => {
       if (!values[field]) {
         errors[field] = t('This field is required.');

@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import { type FunctionComponent } from 'react';
 import { makeStyles } from 'tss-react/mui';
 
@@ -46,21 +45,22 @@ const MitreMatrix: FunctionComponent<Props> = ({
   }
 
   // Attack Pattern
-  const resultAttackPatternIds = R.uniq(
+  const resultAttackPatternIds = [...new Set(
     injectResults
       .filter(injectResult => !!injectResult.inject_attack_pattern)
       .flatMap(injectResult => injectResult.inject_attack_pattern) as unknown as string[],
-  );
+  )];
   const resultAttackPatterns: AttackPattern[] = resultAttackPatternIds.map((attackPatternId: string) => attackPatternMap[attackPatternId])
     .filter((attackPattern: AttackPattern) => !!attackPattern);
   const getAttackPatterns = (killChainPhase: KillChainPhase) => {
     return resultAttackPatterns.filter((attackPattern: AttackPattern) => attackPattern.attack_pattern_kill_chain_phases?.includes(killChainPhase.phase_id));
   };
   // Kill Chain Phase
-  const resultKillChainPhases = R.uniq(resultAttackPatterns
+  // killChainPhaseMap returns one store object per phase id, so a reference Set dedupes like Ramda's uniq did
+  const resultKillChainPhases = [...new Set(resultAttackPatterns
     .flatMap(attackPattern => (attackPattern.attack_pattern_kill_chain_phases ?? []))
     .map((killChainPhaseId: string) => killChainPhaseMap[killChainPhaseId])
-    .filter(killChainPhase => !!killChainPhase));
+    .filter(killChainPhase => !!killChainPhase))];
   return (
     <div className={classes.container}>
       {[...resultKillChainPhases].sort(sortKillChainPhase)

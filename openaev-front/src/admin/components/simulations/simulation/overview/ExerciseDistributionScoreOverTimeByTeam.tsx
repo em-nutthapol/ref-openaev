@@ -31,16 +31,18 @@ const ExerciseDistributionScoreOverTimeByTeam: FunctionComponent<Props> = ({ exe
 
   let cumulation = 0;
   const teamsScores = R.pipe(
-    R.filter((n: InjectExpectationOutput) => n.inject_expectation_score != null && n?.inject_expectation_team && n?.inject_expectation_user === null),
+    (expectationsList: InjectExpectationOutput[]) => expectationsList.filter(
+      (n: InjectExpectationOutput) => n.inject_expectation_score != null && n?.inject_expectation_team && n?.inject_expectation_user === null,
+    ),
     R.groupBy(R.prop('inject_expectation_team')),
     R.toPairs,
-    R.map((n: [string, InjectExpectationOutput[]]) => {
+    (pairs: [string, InjectExpectationOutput[]][]) => pairs.map((n: [string, InjectExpectationOutput[]]) => {
       cumulation = 0;
       return [
         n[0],
         R.pipe(
           R.sortWith([R.ascend(R.prop('inject_expectation_updated_at'))]),
-          R.map((i: InjectExpectationOutput) => {
+          (sortedExpectations: InjectExpectationOutput[]) => sortedExpectations.map((i: InjectExpectationOutput) => {
             cumulation += i.inject_expectation_score ?? 0;
             return {
               ...i,
@@ -50,7 +52,7 @@ const ExerciseDistributionScoreOverTimeByTeam: FunctionComponent<Props> = ({ exe
         )(n[1]),
       ];
     }),
-    R.map((n: [string, Array<InjectExpectationOutput & { inject_expectation_cumulated_score: number }>]) => ({
+    (pairs: [string, Array<InjectExpectationOutput & { inject_expectation_cumulated_score: number }>][]) => pairs.map(n => ({
       name: teamsMap[n[0]]?.team_name,
       color: teamsColors[n[0]],
       data: n[1].map((i: InjectExpectationOutput & { inject_expectation_cumulated_score: number }) => ({

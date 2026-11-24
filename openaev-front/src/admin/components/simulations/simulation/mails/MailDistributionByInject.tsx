@@ -30,7 +30,7 @@ const MailDistributionByInject: FunctionComponent<Props> = ({ exerciseId }) => {
 
   const sortedInjectsByCommunicationNumber = R.pipe(
     R.sortWith([R.descend(R.prop('inject_communications_number'))]),
-    R.take(10),
+    (sortedInjects: Inject[]) => sortedInjects.slice(0, 10),
   )(injects || []);
   const totalMailsByInjectData = [
     {

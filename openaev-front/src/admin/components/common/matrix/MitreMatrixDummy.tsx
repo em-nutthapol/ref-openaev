@@ -38,7 +38,7 @@ const MitreMatrixDummy: FunctionComponent = () => {
     return (k1.phase_order ?? 0) - (k2.phase_order ?? 0);
   };
   const getAttackPatterns = (killChainPhase: KillChainPhase) => {
-    return R.take(random(3, 6), attackPatterns.filter((attackPattern: AttackPattern) => attackPattern.attack_pattern_kill_chain_phases?.includes(killChainPhase.phase_id)));
+    return attackPatterns.filter((attackPattern: AttackPattern) => attackPattern.attack_pattern_kill_chain_phases?.includes(killChainPhase.phase_id)).slice(0, random(3, 6));
   };
   return (
     <div className={classes.container}>

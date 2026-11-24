@@ -32,13 +32,13 @@ const MailDistributionOverTime: FunctionComponent<Props> = ({ exerciseId }) => {
   let cumulation = 0;
   const teamsColors = getTeamsColors(teams);
   const teamsCommunications = R.pipe(
-    R.map((n: Team) => {
+    (teamsList: Team[]) => teamsList.map((n: Team) => {
       cumulation = 0;
       return {
         ...n,
         team_communications: R.pipe(
           R.sortWith([R.ascend(R.prop('communication_received_at'))]),
-          R.map((i: Communication) => {
+          (sortedCommunications: Communication[]) => sortedCommunications.map((i: Communication) => {
             cumulation += 1;
             return {
               ...i,
@@ -48,7 +48,7 @@ const MailDistributionOverTime: FunctionComponent<Props> = ({ exerciseId }) => {
         )(n.team_communications || []),
       };
     }),
-    R.map((a: Team & { team_communications: Array<Communication & { communication_cumulated_number: number }> }) => ({
+    (teamsList: Array<Team & { team_communications: Array<Communication & { communication_cumulated_number: number }> }>) => teamsList.map(a => ({
       name: a.team_name,
       color: teamsColors[a.team_id],
       data: a.team_communications?.map((c: Communication & { communication_cumulated_number: number }) => ({

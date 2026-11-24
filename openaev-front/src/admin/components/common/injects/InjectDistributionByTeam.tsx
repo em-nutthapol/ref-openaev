@@ -34,7 +34,7 @@ const InjectDistributionByTeam: FunctionComponent<Props> = ({ exerciseId }) => {
     R.sortWith([
       R.descend(R.prop('team_injects_expectations_total_expected_score')),
     ]),
-    R.take(10),
+    (sortedTeams: Team[]) => sortedTeams.slice(0, 10),
   )(teams || []);
   const expectedScoreByTeamData = [
     {

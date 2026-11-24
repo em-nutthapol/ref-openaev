@@ -69,7 +69,7 @@ const LessonsPlayer = (props) => {
   const sortQuestions = R.sortWith([R.ascend(R.prop('lessons_question_order'))]);
   const sortedCategories = sortCategories(lessonsCategories);
 
-  const initialValues = R.pipe(R.map(n => ({
+  const initialValues = R.pipe(answers => answers.map(n => ({
     [`${n.lessons_answer_question}_score`]: n.lessons_answer_score || 0,
     [`${n.lessons_answer_question}_positive`]: n.lessons_answer_positive || 0,
     [`${n.lessons_answer_question}_negative`]: n.lessons_answer_negative || 0,
