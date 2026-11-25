@@ -395,6 +395,22 @@ POST /api/tenants/{tenantId}/marking_definitions/stix
 - **Response**: one entry per `marking-definition` object, `{"stixId": "...", "type": "...", "definition": "...", "outcome": "..."}`, with `CREATED`, `EXISTING` (the Tenant already has this STIX id), `CONFLICT` (a Marking definition of the same type and definition exists under another id) or `INVALID`. Other object types are ignored and nothing is overwritten.
 - **Access**: the right to manage Marking definitions; a Marking definition above your own clearance on its type is refused, as when created by hand.
 
+## XTM Hub public key
+
+OpenAEV holds one Ed25519 key for the whole platform to authenticate to XTM Hub. So that XTM Hub can check this key, OpenAEV serves its public half as a JSON Web Key Set, without authentication:
+
+```http
+GET /api/xtmhub/jwks
+```
+
+```json
+{"keys": [{"kty": "OKP", "crv": "Ed25519", "alg": "EdDSA", "use": "sig", "kid": "<key id>", "x": "<public key>"}]}
+```
+
+- **Key**: derived from `openaev.admin.encryption_key` and never stored, so every node serves the same key and a restart keeps it. A new encryption key gives a new key, which XTM Hub learns only when an administrator registers the platform again.
+- **Content**: the public key only. The private key never leaves the platform.
+- **Access**: none.
+
 ## What's next?
 
 - [Filters](filters.md) -- Filter format and operators

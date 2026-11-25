@@ -15571,6 +15571,19 @@ export interface XtmHubContactUsInput {
   message: string;
 }
 
+export interface XtmHubJwksOutput {
+  keys?: XtmHubPublicJwk[];
+}
+
+export interface XtmHubPublicJwk {
+  alg?: string;
+  crv?: string;
+  kid?: string;
+  kty?: string;
+  use?: string;
+  x?: string;
+}
+
 export interface XtmHubRegisterInput {
   /**
    * The registration token
