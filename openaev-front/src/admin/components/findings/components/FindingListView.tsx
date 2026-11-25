@@ -17,11 +17,6 @@ import { OpenCrqRowMark } from '../../../../components/xtm/XtmOpenCrq';
 import { OpenCtiRowMark } from '../../../../components/xtm/XtmPivot';
 import { type AggregatedFindingOutput, type TargetSimple } from '../../../../utils/api-types';
 import ContractOutputElementType from '../ContractOutputElementType';
-import {ConnectorLogo} from "../../integrations/catalog_connectors/ConnectorParts";
-import InjectIcon from "../../common/injects/InjectIcon";
-import CollectorIcon from "../../common/collectors/CollectorIcon";
-import InjectorIcon from "../../common/injectors/InjectorIcon";
-import CustomTooltip from "../../../../components/CustomTooltip";
 import FindingSource from "./FindingSource";
 
 interface Props {
@@ -34,8 +29,8 @@ interface Props {
 const inlineStyles: Record<string, CSSProperties> = ({
   finding_type: { width: '13%' },
   finding_value: { width: '27%' },
-  finding_assets: { width: '22%' },
-  finding_sources: { width: '10%' },
+  finding_assets: { width: '17%' },
+  finding_sources: { width: '15%' },
   finding_created_at: { width: '14%' },
   finding_updated_at: { width: '14%' },
 });
