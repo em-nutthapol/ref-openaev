@@ -5228,5 +5228,15 @@
   "Not found across the XTM Platform": "XTM プラットフォームで見つかりません",
   "Found": "見つかりました",
   "Not found": "見つかりません",
-  "Unavailable": "利用できません"
+  "Unavailable": "利用できません",
+  "(+{count}) Click to view all the new GitHub releases": "(+{count}) クリックしてGitHubの新しいリリースをすべて表示",
+  "GitHub release": "GitHub リリース",
+  "GitHub releases": "GitHub リリース",
+  "Link": "リンク",
+  "No GitHub releases yet": "まだ GitHub リリースはありません",
+  "Release date": "リリース日",
+  "See all releases": "すべてのリリースを表示",
+  "Unread GitHub releases: {count}": "未読の GitHub リリース: {count}",
+  "Last releases": "最新のリリース",
+  "Open on GitHub": "GitHub で開く"
 }

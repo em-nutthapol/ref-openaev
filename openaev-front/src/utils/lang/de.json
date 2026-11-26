@@ -5228,5 +5228,15 @@
   "Not found across the XTM Platform": "In der XTM-Plattform nicht gefunden",
   "Found": "Gefunden",
   "Not found": "Nicht gefunden",
-  "Unavailable": "Nicht verfügbar"
+  "Unavailable": "Nicht verfügbar",
+  "(+{count}) Click to view all the new GitHub releases": "(+{count}) Klicken Sie hier, um alle neuen GitHub-Veröffentlichungen anzuzeigen",
+  "GitHub release": "GitHub-Veröffentlichung",
+  "GitHub releases": "GitHub-Veröffentlichungen",
+  "Link": "Link",
+  "No GitHub releases yet": "Noch keine GitHub-Veröffentlichungen",
+  "Release date": "Veröffentlichungsdatum",
+  "See all releases": "Alle Veröffentlichungen anzeigen",
+  "Unread GitHub releases: {count}": "Ungelesene GitHub-Veröffentlichungen: {count}",
+  "Last releases": "Neueste Veröffentlichungen",
+  "Open on GitHub": "Auf GitHub öffnen"
 }

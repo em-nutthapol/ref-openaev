@@ -5228,5 +5228,15 @@
   "Not found across the XTM Platform": "XTM 플랫폼에서 찾을 수 없음",
   "Found": "찾음",
   "Not found": "찾을 수 없음",
-  "Unavailable": "사용할 수 없음"
+  "Unavailable": "사용할 수 없음",
+  "(+{count}) Click to view all the new GitHub releases": "(+{count}) 클릭하여 모든 새로운 GitHub 릴리스를 확인하세요",
+  "GitHub release": "GitHub 릴리스",
+  "GitHub releases": "GitHub 릴리스",
+  "Link": "링크",
+  "No GitHub releases yet": "아직 GitHub 릴리스가 없습니다",
+  "Release date": "릴리스 날짜",
+  "See all releases": "모든 릴리스 보기",
+  "Unread GitHub releases: {count}": "읽지 않은 GitHub 릴리스: {count}",
+  "Last releases": "최신 릴리스",
+  "Open on GitHub": "GitHub에서 열기"
 }

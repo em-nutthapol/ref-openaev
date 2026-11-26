@@ -5228,5 +5228,15 @@
   "Not found across the XTM Platform": "在 XTM 平台中未找到",
   "Found": "已找到",
   "Not found": "未找到",
-  "Unavailable": "不可用"
+  "Unavailable": "不可用",
+  "(+{count}) Click to view all the new GitHub releases": "(+{count}) 点击查看所有新的 GitHub 发布版本",
+  "GitHub release": "GitHub 发布",
+  "GitHub releases": "GitHub 发布",
+  "Link": "链接",
+  "No GitHub releases yet": "尚无 GitHub 发布",
+  "Release date": "发布日期",
+  "See all releases": "查看所有发布",
+  "Unread GitHub releases: {count}": "未读 GitHub 发布：{count}",
+  "Last releases": "最新发布",
+  "Open on GitHub": "在 GitHub 上打开"
 }
