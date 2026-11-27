@@ -10785,12 +10785,7 @@ export interface PayloadFieldUpdateOutput {
     | "ARGUMENTS"
     | "PREREQUISITES";
   /** What the update does with the field; a conflict needs a choice */
-  field_status:
-    | "TAKE_APPLIED"
-    | "KEEP_MINE"
-    | "CONFLICT"
-    | "ADDED"
-    | "REMOVED";
+  field_status: "TAKE_APPLIED" | "KEEP_MINE" | "CONFLICT" | "ADDED" | "REMOVED";
 }
 
 export interface PayloadInput {
